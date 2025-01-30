@@ -1,0 +1,150 @@
+:root {
+    --primary: #d62828;
+    --secondary: #003049;
+    --success: #2a9d8f;
+    --danger: #e63946;
+    --background: #f8f9fa;
+    --text: #222;
+    --light-gray: #ddd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Georgia", serif;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.subtext {
+    font-size: 1rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.input-container {
+    margin-bottom: 1.5rem;
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: vertical;
+    transition: 0.3s;
+}
+
+textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--secondary);
+}
+
+.result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.result.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.result.real {
+    background: rgba(42, 157, 143, 0.1);
+    color: var(--success);
+}
+
+.result.fake {
+    background: rgba(230, 57, 70, 0.1);
+    color: var(--danger);
+}
+
+.confidence {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.highlight {
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+/* Loading animation */
+.loading {
+    display: none;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.loading div {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: bounce 0.6s infinite alternate;
+}
+
+.loading div:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.loading div:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+    to {
+        transform: translateY(-10px);
+    }
+}
