@@ -40,6 +40,3 @@ UI/UX Improvements: Enhance the design and interactivity of the user interface.
 
 Advanced NLP: Integrate more advanced NLP techniques for deeper analysis.
 
-**Acknowledgments**
-
-This project was developed as part of the Serve Smart Hackathon by IIT BHU. A special thanks to the organizers and all participants for the invaluable experience!
