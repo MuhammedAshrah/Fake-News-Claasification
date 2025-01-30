@@ -11,7 +11,8 @@ This project is a real-time Fake News Detection web application that classifies 
 4. Flask Web App: Simple and interactive interface for easy use.
 
 **Usage**
-1. Paste any news article into the provided textarea.
+1. Paste any news article into the provided text area.
+   
    ![image](https://github.com/user-attachments/assets/e08f6019-b6d5-4d13-82a4-0b4e66c4eff6)
 
 2. Click the "Analyze Article" button.
