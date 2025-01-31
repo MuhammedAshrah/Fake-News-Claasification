@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGS</title>
+    <style>
+        :root {
+            --primary: #d62828;
+            --secondary: #003049;
+            --success: #2a9d8f;
+            --danger: #e63946;
+            --background: #f8f9fa;
+            --text: #222;
+            --light-gray: #ddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Georgia", serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem auto;
+        }
+
+        th,
+        td {
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        th {
+            background: var(--secondary);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        p {
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 630px) {
+            body {
+                padding: 0;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            th,
+            td {
+                padding: 0.25rem;
+            }
+
+            p {
+                font-size: 0.8rem;
+            }
+
+            .container {
+                border-radius: 0;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📜 Previous Resuls</h1>
+        {% if logs %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Article</th>
+                <th>Result</th>
+                <th>Confidence</th>
+            </tr>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.article }}</td>
+                <td>{{ log.result }}</td>
+                <td class="confidence">{{ log.confidence }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No logs available.</p>
+        {% endif %}
+    </div>
+    <script>
+        const confidence = document.querySelectorAll('.confidence');
+        confidence.forEach((element) => {
+            let value = parseFloat(element.textContent);
+            console.log(value);
+            value = value.toFixed(2);
+            element.textContent = value;
+        });
+    </script>
+</body>
+
+</html>
