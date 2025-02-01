@@ -3,6 +3,7 @@ from flask_cors import CORS
 from tensorflow.keras.models import load_model
 import pickle
 import numpy as np
+import os
 
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
@@ -68,4 +69,5 @@ def log():
     return render_template('log.html', logs=logs)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render provides PORT dynamically
+    app.run(host="0.0.0.0", port=port, debug=False)  # Bind to 0.0.0.0
