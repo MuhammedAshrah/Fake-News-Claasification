@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="../static/script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📰 Fake News Detector</h1>
+        <p class="subtext">Analyze articles and determine their authenticity.</p>
+
+        <form id="newsForm" method="POST" action="/check">
+            <textarea name="article" placeholder="Paste the news article here..." required></textarea>
+            <button type="submit">🔍 Analyze</button>
+        </form>
+
+        <!-- Loading animation -->
+        <div class="loading" id="loading">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!-- Display result -->
+        {% if result %}
+        <div id="result" class="result show {{ result|lower }}">
+            <h3 class="verdict">This article appears to be: <span class="highlight">{{ result }}</span></h3>
+            <p class="confidence">Confidence: <span>{{ confidence }}</span></p>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
